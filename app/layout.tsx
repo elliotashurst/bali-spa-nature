@@ -5,17 +5,31 @@ import RightRail from "@/components/RightRail";
 import PageTransition from "@/components/PageTransition";
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
+import { Inter, Cormorant_Garamond } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://balispanature.com"),
 
   title: {
-    default: "Bali Spa Nature | Premium Spa Product Manufacturer in Bali",
+    default: "Bali Spa Nature | Spa & Hospitality Product Manufacturing in Indonesia",
     template: "%s | Bali Spa Nature",
   },
 
   description:
-    "Eco-luxury spa and hospitality product manufacturing in Bali. Private label and wholesale collections with custom formulation, sustainable production, and export-ready support for global B2B brands.",
+    "Bali Spa Nature manufactures spa and personal care products in Indonesia for hospitality and wellness operators. Private label manufacturing and wholesale supply structured for consistency, compliance, and long-term partnerships.",
 
   alternates: {
     canonical: "/",
@@ -25,24 +39,26 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://balispanature.com",
     siteName: "Bali Spa Nature",
-    title: "Bali Spa Nature | Premium Spa Product Manufacturer in Bali",
+    title:
+      "Bali Spa Nature | Spa & Hospitality Product Manufacturing in Indonesia",
     description:
-      "Eco-luxury spa and hospitality product manufacturing in Bali. Private label and wholesale collections with custom formulation, sustainable production, and export-ready support for global B2B brands.",
+      "Manufacturing spa and personal care products in Indonesia for hotels, resorts, and wellness operators. Private label and wholesale supply structured for repeatability and long-term partnerships.",
     images: [
       {
         url: "/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Bali Spa Nature – Premium spa product manufacturing in Bali",
+        alt: "Bali Spa Nature – Manufacturing spa and hospitality products in Indonesia",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Bali Spa Nature | Premium Spa Product Manufacturer in Bali",
+    title:
+      "Bali Spa Nature | Spa & Hospitality Product Manufacturing in Indonesia",
     description:
-      "Eco-luxury spa and hospitality product manufacturing in Bali. Private label and wholesale collections with custom formulation and sustainable production for global B2B brands.",
+      "Private label manufacturing and wholesale supply of spa and personal care products in Indonesia for hospitality and wellness businesses.",
     images: ["/og.jpg"],
   },
 
@@ -58,28 +74,29 @@ export const metadata: Metadata = {
     },
   },
 };
-
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-   <html lang="en" style={{ overflowY: "scroll", overflowX: "hidden" }}>
-  <body
-    style={{ overflowY: "scroll", overflowX: "hidden" }}
-    className="bg-[var(--page-bg)] text-[var(--foreground)] antialiased"
-  >
+    <html
+      lang="en"
+      className={`${inter.variable} ${cormorant.variable}`}
+      style={{ overflowY: "scroll", overflowX: "hidden" }}
+    >
+      <body
+        style={{ overflowY: "scroll", overflowX: "hidden" }}
+        className="bg-[var(--page-bg)] text-[var(--foreground)] antialiased"
+      >
+        <Navbar />
+        <RightRail />
 
-    <Navbar />
-    <RightRail /> 
+        <main
+          id="page-container"
+          className="relative w-full overflow-x-hidden bg-[var(--page-bg)]"
+        >
+          <PageTransition>{children}</PageTransition>
+        </main>
 
-
-    <main id="page-container" className="relative w-full overflow-x-hidden bg-[var(--page-bg)]">
-  <PageTransition>{children}</PageTransition>
-</main>
-
-
-    <Footer />
-    
-  </body>
-</html>
-
+        <Footer />
+      </body>
+    </html>
   );
 }

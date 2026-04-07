@@ -1,85 +1,127 @@
 import MiniHero from "@/components/MiniHero";
-import TrustStrip from "@/components/TrustStrip";
-import TrustSection from "@/components/TrustSection";
 import Link from "next/link";
 
 export default function AboutPage() {
   return (
     <div className="page-safe">
       <MiniHero
-        title="About Us"
-        subtitle="Balinese heritage, modern manufacturing, and a premium standard of quality for B2B wellness brands."
-        ctaPrimary={{ label: "Create Your Own Brand", href: "/private-label" }}
-        ctaSecondary={{ label: "View Products", href: "/products" }}
+        title="About Bali Spa Nature"
+        subtitle="Bali Spa Nature is an Indonesian manufacturer of spa and personal care products for professional hospitality and wellness use."
+        ctaPrimary={{ label: "Discuss a Manufacturing Partnership", href: "/contact" }}
+        ctaSecondary={{ label: "Explore Product Categories", href: "/products" }}
       />
 
-      <TrustStrip
-        items={[
-          { label: "Origin", value: "Bali, Indonesia" },
-          { label: "Focus", value: "B2B manufacturing" },
-          { label: "Quality", value: "Consistent batches" },
-          { label: "Ethos", value: "Mindful production" },
-        ]}
-      />
-
-      {/* Story */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-olive">
-            Crafted in Bali for Premium Guest Experiences
-          </h2>
-          <p className="mt-5 text-lg text-text-light leading-relaxed">
-            Bali Spa Nature blends traditional Indonesian botanicals with modern,
-            sustainable manufacturing processes. We support spa, hospitality, and
-            wellness brands with reliable production, export-ready operations,
-            and refined product presentation — from concept to delivery.
+      {/* Opening */}
+      <section className="py-20 md:py-24 px-6 md:px-10 bg-[#F2EEE8]">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-[17px] leading-8 text-neutral-700">
+            We work with hotels, resorts, spas, and wellness businesses seeking
+            reliable, long-term manufacturing partnerships.
           </p>
-        </div>
 
-        {/* Pillars */}
-        <div className="mt-14 grid gap-8 md:grid-cols-3">
-          {[
-            {
-              title: "Heritage + Formulation",
-              text: "Inspired by Balinese wellness traditions and developed with a modern quality mindset.",
-            },
-            {
-              title: "Sustainable Production",
-              text: "Thoughtful ingredient sourcing and packaging options aligned with premium brands.",
-            },
-            {
-              title: "B2B Reliability",
-              text: "Clear communication, consistent output, and support across compliance and logistics.",
-            },
-          ].map((item) => (
-            <div
-              key={item.title}
-              className="
-                rounded-3xl bg-white border border-black/10
-                p-7 text-center
-                shadow-[0_10px_25px_rgba(0,0,0,0.06)]
-              "
-            >
-              <h3 className="text-lg font-semibold text-olive">{item.title}</h3>
-              <p className="mt-3 text-sm text-text-light leading-relaxed">
-                {item.text}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="mt-14 flex flex-wrap justify-center gap-4">
-          <Link href="/contact" className="btn-primary">
-            Request Catalogue
-          </Link>
-          <Link href="/private-label" className="btn-secondary">
-            Private Label Manufacturing
-          </Link>
+          <p className="mt-5 text-[17px] leading-8 text-neutral-700">
+            Our operations are focused on private label manufacturing and wholesale
+            supply, structured for repeatability and consistency.
+          </p>
         </div>
       </section>
 
-      <TrustSection />
+      {/* Manufacturing-led by design */}
+      <section className="py-20 md:py-24 px-6 md:px-10 bg-[var(--page-bg)]">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-neutral-900 mb-6 leading-tight">
+            Manufacturing-Led by Design
+          </h2>
+
+          <p className="text-[17px] leading-8 text-neutral-700">
+            Bali Spa Nature operates as a manufacturing-first business. Products
+            are formulated, sampled, and produced through defined processes designed
+            to support professional environments where consistency, safety, and
+            reliability matter.
+          </p>
+
+          <p className="mt-5 text-[17px] leading-8 text-neutral-700">
+            Each engagement is approached as a manufacturing project rather than a
+            retail transaction.
+          </p>
+        </div>
+      </section>
+
+      {/* From formulation to supply */}
+      <section className="py-20 md:py-24 px-6 md:px-10 bg-[#EEE8E0]">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-neutral-900 mb-6 leading-tight">
+            From Indonesian Formulation to Ongoing Supply
+          </h2>
+
+          <p className="text-[17px] leading-8 text-neutral-700">
+            The business was established to serve hospitality and wellness operators
+            seeking professionally manufactured products rooted in Indonesian botanical
+            knowledge.
+          </p>
+
+          <p className="mt-5 text-[17px] leading-8 text-neutral-700">
+            Formulation, sampling, and production are structured to support private
+            label and wholesale partnerships through controlled stages from concept
+            to supply.
+          </p>
+        </div>
+      </section>
+
+      {/* Manufacturing, quality & compliance */}
+      <section className="py-20 md:py-24 px-6 md:px-10 bg-[var(--page-bg)]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-center text-neutral-900 mb-12 leading-tight">
+            Manufacturing, Quality & Compliance
+          </h2>
+
+          <div className="bg-white/70 rounded-2xl p-8 md:p-10">
+            <div className="space-y-5">
+              <div className="flex items-start gap-3">
+                <span className="mt-2 h-2 w-2 rounded-full bg-neutral-900"></span>
+                <p className="text-[16px] leading-7 text-neutral-800 font-medium">
+                  Manufacturing conducted in Indonesia
+                </p>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <span className="mt-2 h-2 w-2 rounded-full bg-neutral-900"></span>
+                <p className="text-[16px] leading-7 text-neutral-800 font-medium">
+                  GMP-aligned production processes
+                </p>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <span className="mt-2 h-2 w-2 rounded-full bg-neutral-900"></span>
+                <p className="text-[16px] leading-7 text-neutral-800 font-medium">
+                  Batch-based production with defined quality checks
+                </p>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <span className="mt-2 h-2 w-2 rounded-full bg-neutral-900"></span>
+                <p className="text-[16px] leading-7 text-neutral-800 font-medium">
+                  BPOM support available where applicable
+                </p>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <span className="mt-2 h-2 w-2 rounded-full bg-neutral-900"></span>
+                <p className="text-[16px] leading-7 text-neutral-800 font-medium">
+                  Export documentation supported per destination market
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 md:py-24 px-6 md:px-10 bg-[#EEE8E0] text-center">
+        <Link href="/contact" className="btn-primary">
+          Discuss a Manufacturing Partnership
+        </Link>
+      </section>
     </div>
   );
 }

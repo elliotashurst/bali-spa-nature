@@ -19,7 +19,7 @@ export default function Navbar() {
     setMenuOpen(false);
   }, [pathname]);
 
-  // Lock body scroll when menu open
+  // Lock body scroll when menu is open
   useEffect(() => {
     if (!menuOpen) return;
     const prev = document.body.style.overflow;
@@ -34,16 +34,14 @@ export default function Navbar() {
       const y = window.scrollY;
       if (!navRef.current) return;
 
-      // Hide on scroll down, show on scroll up (only if menu closed)
       if (!menuOpen) {
         navRef.current.style.transform =
           y > lastY.current && y > 80 ? "translateY(-100%)" : "translateY(0)";
       } else {
         navRef.current.style.transform = "translateY(0)";
       }
-      lastY.current = y;
 
-      // Home: transparent at top, solid after scroll
+      lastY.current = y;
       setIsScrolled(y > 30);
     };
 
@@ -67,34 +65,71 @@ export default function Navbar() {
     "fixed top-0 left-0 w-full z-[100] transition-transform duration-300",
     isHome
       ? isScrolled
-        ? "bg-[var(--page-bg)]/90 backdrop-blur border-b border-black/10 shadow-sm"
+        ? "bg-[var(--page-bg)]/88 backdrop-blur-md border-b border-black/10 shadow-sm"
         : "bg-transparent"
-      : "bg-[var(--page-bg)]/95 backdrop-blur border-b border-black/10 shadow-sm",
+      : "bg-[var(--page-bg)]/95 backdrop-blur-md border-b border-black/10 shadow-sm",
   ].join(" ");
 
-  const desktopUlClass = [
-    "hidden md:flex gap-10 font-semibold transition-colors duration-300",
-    isHome && !isScrolled ? "nav-home-transparent text-white" : "text-olive",
+  const desktopNavTextClass =
+    isHome && !isScrolled
+      ? "nav-home-transparent text-white"
+      : "text-[var(--olive)]";
+
+  const mobileButtonClass = [
+    "md:hidden inline-flex items-center justify-center rounded-full h-11 w-11 transition",
+    isHome && !isScrolled
+      ? "border border-white/25 bg-white/10 text-white backdrop-blur"
+      : "border border-black/10 bg-white/75 text-black backdrop-blur",
   ].join(" ");
 
   return (
     <>
       <nav ref={navRef} className={navClass}>
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" aria-label="Bali Spa Nature home">
-            <img src="/logo.png" className="h-12" alt="Bali Spa Nature" />
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-8 md:py-5">
+          {/* Logo */}
+          <Link
+            href="/"
+            aria-label="Bali Spa Nature home"
+            className="shrink-0 transition-opacity duration-300 hover:opacity-90"
+          >
+            <img
+              src="/logo.png"
+              alt="Bali Spa Nature"
+              className={[
+                "w-auto transition-all duration-300",
+                isHome && !isScrolled
+                  ? "h-16 md:h-[82px]"
+                  : "h-14 md:h-[74px]",
+              ].join(" ")}
+            />
           </Link>
 
           {/* Desktop nav */}
-          <ul className={desktopUlClass}>
-            {links.map(([label, href]) => (
-              <li key={href}>
-                <Link href={href} className="nav-underline">
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className="hidden md:flex items-center gap-10">
+            <ul
+              className={[
+                "flex items-center gap-8 lg:gap-10 text-[13px] uppercase font-medium tracking-[0.08em] transition-colors duration-300",
+                desktopNavTextClass,
+              ].join(" ")}
+            >
+              {links.map(([label, href]) => (
+                <li key={href}>
+                  <Link href={href} className="nav-underline">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <Link
+              href="/contact"
+              className={
+                isHome && !isScrolled ? "btn-secondary-light" : "btn-olive"
+              }
+            >
+              Discuss a Project
+            </Link>
+          </div>
 
           {/* Mobile hamburger */}
           <button
@@ -102,33 +137,25 @@ export default function Navbar() {
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((v) => !v)}
-            className={[
-              "md:hidden inline-flex items-center justify-center rounded-full border border-black/10 bg-white/70 backdrop-blur",
-              "h-11 w-11",
-              isHome && !isScrolled ? "border-white/25 bg-white/10" : "",
-            ].join(" ")}
+            className={mobileButtonClass}
           >
-            {/* Simple icon */}
             <span className="relative block h-4 w-5">
               <span
                 className={[
                   "absolute left-0 top-0 h-[2px] w-5 rounded bg-current transition-transform duration-200",
                   menuOpen ? "translate-y-[7px] rotate-45" : "",
-                  isHome && !isScrolled ? "text-white" : "text-black",
                 ].join(" ")}
               />
               <span
                 className={[
                   "absolute left-0 top-[7px] h-[2px] w-5 rounded bg-current transition-opacity duration-200",
                   menuOpen ? "opacity-0" : "opacity-100",
-                  isHome && !isScrolled ? "text-white" : "text-black",
                 ].join(" ")}
               />
               <span
                 className={[
                   "absolute left-0 top-[14px] h-[2px] w-5 rounded bg-current transition-transform duration-200",
                   menuOpen ? "translate-y-[-7px] -rotate-45" : "",
-                  isHome && !isScrolled ? "text-white" : "text-black",
                 ].join(" ")}
               />
             </span>
@@ -147,18 +174,23 @@ export default function Navbar() {
           />
 
           {/* Drawer */}
-          <div className="absolute right-0 top-0 h-full w-[86%] max-w-sm bg-[var(--page-bg)] shadow-2xl border-l border-black/10">
-            <div className="px-6 pt-6 pb-4 flex items-center justify-between">
-              <div className="text-sm font-semibold text-olive">
-                Bali Spa Nature
-              </div>
+          <div className="absolute right-0 top-0 h-full w-[88%] max-w-sm border-l border-black/10 bg-[var(--page-bg)] shadow-2xl">
+            <div className="flex items-center justify-between px-6 pb-4 pt-6">
+              <Link href="/" onClick={() => setMenuOpen(false)} className="shrink-0">
+                <img
+                  src="/logo.png"
+                  alt="Bali Spa Nature"
+                  className="h-14 w-auto"
+                />
+              </Link>
+
               <button
                 type="button"
                 onClick={() => setMenuOpen(false)}
-                className="rounded-full border border-black/10 bg-white h-10 w-10"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white"
                 aria-label="Close menu"
               >
-                ×
+                <span className="text-xl leading-none text-black/70">×</span>
               </button>
             </div>
 
@@ -168,7 +200,7 @@ export default function Navbar() {
                   <Link
                     key={href}
                     href={href}
-                    className="rounded-2xl bg-white/70 border border-black/10 px-4 py-3 text-[15px] font-medium text-black/80 hover:border-black/20 transition"
+                    className="rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-[14px] font-medium uppercase tracking-[0.06em] text-black/80 transition hover:border-black/20"
                   >
                     {label}
                   </Link>
@@ -176,23 +208,13 @@ export default function Navbar() {
               </nav>
 
               <div className="mt-6 grid grid-cols-1 gap-3">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:opacity-90 transition"
-                >
-                  Request Catalogue
+                <Link href="/contact" className="btn-olive">
+                  Discuss a Project
                 </Link>
-                <Link
-                  href="/products"
-                  className="inline-flex items-center justify-center rounded-full border border-black/15 bg-white px-6 py-3 text-sm font-medium text-black/75 hover:border-black/25 hover:text-black transition"
-                >
-                  View Products
+                <Link href="/products" className="btn-secondary">
+                  Explore Product Categories
                 </Link>
               </div>
-
-              <p className="mt-6 text-xs text-black/50">
-                Preview build — confidential.
-              </p>
             </div>
           </div>
         </div>

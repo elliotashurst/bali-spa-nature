@@ -39,19 +39,25 @@ export default function HeroSection({
         ) : null}
 
         {(ctaPrimary || ctaSecondary) ? (
-          <div className="reveal-up reveal-delay-3 mt-12 flex flex-wrap justify-center gap-4">
-            {ctaPrimary ? (
-              <Link href={ctaPrimary.href} className="btn-primary">
-                {ctaPrimary.label}
-              </Link>
-            ) : null}
+          <>
+            <div className="reveal-up reveal-delay-3 mt-12 flex flex-wrap justify-center gap-4">
+              {ctaPrimary ? (
+                <Link href={ctaPrimary.href} className="btn-primary">
+                  {ctaPrimary.label}
+                </Link>
+              ) : null}
 
-            {ctaSecondary ? (
-              <Link href={ctaSecondary.href} className="btn-secondary">
-                {ctaSecondary.label}
-              </Link>
-            ) : null}
-          </div>
+              {ctaSecondary ? (
+                <Link href={ctaSecondary.href} className="btn-secondary-light">
+                  {ctaSecondary.label}
+                </Link>
+              ) : null}
+            </div>
+
+            <p className="reveal-up reveal-delay-4 mt-5 text-sm leading-6 text-white/68">
+              For hospitality and wellness operators only
+            </p>
+          </>
         ) : null}
       </div>
     </section>

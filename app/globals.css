@@ -3,53 +3,229 @@
 @tailwind utilities;
 
 /* ===============================
-   DESIGN TOKENS
+   DESIGN TOKENS (BRANDED)
 ================================ */
 :root {
-  --page-bg: #F5F3EF;
-  --foreground: #171717;
-  --olive: #6B7A5C;
-  --bronze: #B8956A;
+  --page-bg: #F0E9E2;
+  --surface: #F7F1EB;
 
-  --footer-bg: #6E5D44;
+  --foreground: #3D3D3D;
+  --text-main: #4A4A4A;
+  --text-soft: #5E5A56;
+  --line-soft: rgba(74, 74, 74, 0.14);
+
+  --olive: #4A5D52;
+  --olive-dark: #3F5147;
+
+  --bronze: #C1A675;
+  --sand: #D4C9AF;
+  --gold-deep: #685220;
+
+  --footer-bg: #4A5D52;
   --footer-text: #FFFFFF;
 }
 
 /* ===============================
-   BASE RESET (NO JUMP)
+   BASE RESET
 ================================ */
 html {
   background: var(--page-bg);
-
-  /* No-jump scrollbar behavior */
   scrollbar-gutter: stable;
   overflow-y: scroll;
-
-  /* Prevent sideways layout expansion */
   overflow-x: clip;
   width: 100%;
+  scroll-behavior: smooth;
 }
-
 
 body {
   margin: 0;
   background: var(--page-bg);
   color: var(--foreground);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont;
-
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont;
+  font-size: 16px;
+  line-height: 1.65;
   overflow-y: scroll;
   overflow-x: clip;
   width: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+  max-width: 100%;
+}
+
+#page-container {
+  max-width: 100%;
+}
+
+.page-safe {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 /* ===============================
-   NAV UNDERLINE (PREMIUM GOLD)
-   Used by Navbar.jsx: className="nav-underline"
+   TYPOGRAPHY
+================================ */
+p {
+  color: var(--text-soft);
+}
+
+h1, h2, .heading-serif {
+  font-family: var(--font-serif), serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-main);
+}
+
+h1 {
+  font-size: clamp(2.75rem, 5vw, 4.25rem);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  line-height: 1.12;
+}
+
+h3 {
+  font-size: clamp(1.375rem, 2vw, 1.625rem);
+  line-height: 1.2;
+}
+
+small {
+  font-size: 0.875rem;
+}
+
+strong {
+  color: var(--text-main);
+}
+
+/* ===============================
+   COMPONENTS
+================================ */
+@layer components {
+
+  /* TEXT */
+  .text-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-soft);
+  }
+
+  .text-body-lg {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-soft);
+  }
+
+  .heading-section {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+
+  .heading-card {
+    font-size: clamp(1.375rem, 2vw, 1.625rem);
+    line-height: 1.2;
+  }
+
+  .eyebrow {
+    @apply text-xs uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-soft);
+  }
+
+  .section-spacing {
+    @apply py-20 md:py-28;
+  }
+
+  .section-spacing-tight {
+    @apply py-16 md:py-20;
+  }
+
+  .content-spacing > * + * {
+    margin-top: 1.25rem;
+  }
+
+  /* ===============================
+     BUTTONS
+  ================================= */
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium uppercase transition;
+    letter-spacing: 0.06em;
+    background: rgba(255,255,255,0.96);
+    color: var(--text-main);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.16);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.2);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium uppercase transition;
+    letter-spacing: 0.06em;
+    border: 1px solid var(--line-soft);
+    color: var(--text-main);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(0,0,0,0.04);
+  }
+
+  .btn-secondary-light {
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium uppercase transition;
+    letter-spacing: 0.06em;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .btn-secondary-light:hover {
+    background: rgba(255,255,255,0.14);
+  }
+
+  .btn-olive {
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium uppercase transition;
+    letter-spacing: 0.06em;
+    background: var(--olive);
+    color: white;
+    box-shadow: 0 10px 30px rgba(74,93,82,0.22);
+  }
+
+  .btn-olive:hover {
+    background: var(--olive-dark);
+    transform: translateY(-1px);
+  }
+
+  /* NAV LINKS */
+  .nav-link {
+    @apply text-sm font-medium transition;
+    letter-spacing: 0.04em;
+  }
+
+  .nav-link:hover {
+    opacity: 0.7;
+  }
+}
+
+/* ===============================
+   NAV UNDERLINE (BRANDED)
 ================================ */
 .nav-underline {
   position: relative;
   display: inline-block;
-  padding-bottom: 2px;
 }
 
 .nav-underline::after {
@@ -60,144 +236,58 @@ body {
   width: 0;
   height: 2px;
   transform: translateX(-50%);
-  background: linear-gradient(90deg, #e7c775, #b8956a);
+  background: linear-gradient(90deg, var(--bronze), var(--gold-deep));
   border-radius: 999px;
   transition: width 320ms cubic-bezier(.2,.8,.2,1);
-  opacity: 0.95;
 }
 
-.nav-underline:hover::after,
-.nav-underline:focus-visible::after {
+.nav-underline:hover::after {
   width: 70%;
 }
 
-/* Homepage transparent navbar text readability */
 .nav-home-transparent {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
-}
-
-
-/* ===============================
-   CTA BUTTONS (VISIBLE ALWAYS)
-================================ */
-.btn-primary {
-  background: #111;
-  color: #fff;
-  padding: 0.9rem 2.1rem;
-  border-radius: 999px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  box-shadow: 0 14px 34px rgba(0,0,0,0.22);
-  transition: transform .22s ease, box-shadow .22s ease, opacity .22s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-primary::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  transform: translateX(-120%);
-  background: linear-gradient(110deg, transparent, rgba(255,255,255,0.18), transparent);
-  transition: transform 700ms ease;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.26);
-  opacity: 0.98;
-}
-
-.btn-primary:hover::before {
-  transform: translateX(120%);
-}
-
-.btn-secondary {
-  border: 1.5px solid rgba(0,0,0,0.20);
-  color: rgba(0,0,0,0.80);
-  padding: 0.9rem 2.1rem;
-  border-radius: 999px;
-  font-weight: 600;
-  transition: transform .22s ease, border-color .22s ease, background .22s ease;
-  background: rgba(255,255,255,0.35);
-  backdrop-filter: blur(6px);
-}
-
-.btn-secondary:hover {
-  transform: translateY(-2px);
-  border-color: rgba(0,0,0,0.35);
-  background: rgba(255,255,255,0.55);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
 }
 
 /* ===============================
-   SOCIAL + STICKY ICONS
-================================ */
-.premium-coin {
-  width: 60px;
-  height: 60px;
-  border-radius: 999px;
-  background: white;
-  border: 2px solid rgba(184,153,95,0.35);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.premium-coin:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
-}
-
-.social-ic svg {
-  width: 22px;
-  height: 22px;
-  color: var(--olive);
-}
-
-/* ===============================
-   FOOTER (CENTERED + SAFE)
+   FOOTER FIX
 ================================ */
 .site-footer {
-  background: var(--footer-bg);
+  background: var(--gold-deep);
   color: var(--footer-text);
- 
 }
 
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 64px 24px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
-  text-align: center;
+.site-footer,
+.site-footer li,
+.site-footer a,
+.site-footer span {
+  color: var(--footer-text);
 }
 
-/* Prevent any accidental horizontal overflow causing right-side gaps */
-html, body {
-  max-width: 100%;
+.site-footer p {
+  color: rgba(255, 255, 255, 0.88);
 }
 
-#page-container {
-  max-width: 100%;
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer h5,
+.site-footer h6 {
+  color: #ffffff;
 }
 
-.premium-coin svg {
-  width: 22px;
-  height: 22px;
-  color: var(--olive);
+.site-footer a {
+  opacity: 0.92;
 }
 
-/* Safe page wrapper: prevents horizontal overflow and unintended gaps */
-.page-safe {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: clip;
+.site-footer a:hover {
+  opacity: 1;
 }
 
-/* Windows Chrome scrollbar styling */
+/* ===============================
+   SCROLLBAR
+================================ */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -207,19 +297,20 @@ html, body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.25);
+  background: rgba(74,74,74,0.25);
   border-radius: 999px;
   border: 3px solid var(--page-bg);
 }
 
-/* Full-bleed utility: stretches sections across the full viewport width */
+/* ===============================
+   FULL BLEED
+================================ */
 .full-bleed {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 }
 
-/* Mobile: prevent 100vw rounding overflow from full-bleed sections */
 @media (max-width: 767px) {
   .full-bleed {
     width: 100%;
@@ -229,9 +320,8 @@ html, body {
 }
 
 /* ===============================
-   ULTRA-PREMIUM REVEAL (HOTEL / SPA)
+   REVEAL ANIMATION
 ================================ */
-
 @keyframes revealUp {
   from {
     opacity: 0;
@@ -246,14 +336,13 @@ html, body {
 .reveal-up {
   opacity: 0;
   transform: translateY(28px);
-  animation: revealUp 1.45s cubic-bezier(.12,.85,.25,1) forwards;
-  will-change: transform, opacity;
+  animation: revealUp 1.4s cubic-bezier(.12,.85,.25,1) forwards;
 }
 
-/* Wide, deliberate stagger */
 .reveal-delay-1 { animation-delay: 260ms; }
 .reveal-delay-2 { animation-delay: 560ms; }
 .reveal-delay-3 { animation-delay: 860ms; }
+.reveal-delay-4 { animation-delay: 1160ms; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal-up {
@@ -261,4 +350,32 @@ html, body {
     transform: none;
     animation: none;
   }
+}
+
+/* ===============================
+   SOCIAL + STICKY ICONS
+================================ */
+.premium-coin {
+  width: 60px;
+  height: 60px;
+  border-radius: 999px;
+  background: white;
+  border: 2px solid rgba(193, 166, 117, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.premium-coin:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.social-ic svg,
+.premium-coin svg {
+  width: 22px;
+  height: 22px;
+  color: var(--olive);
 }
