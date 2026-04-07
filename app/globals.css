@@ -1,0 +1,264 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===============================
+   DESIGN TOKENS
+================================ */
+:root {
+  --page-bg: #F5F3EF;
+  --foreground: #171717;
+  --olive: #6B7A5C;
+  --bronze: #B8956A;
+
+  --footer-bg: #6E5D44;
+  --footer-text: #FFFFFF;
+}
+
+/* ===============================
+   BASE RESET (NO JUMP)
+================================ */
+html {
+  background: var(--page-bg);
+
+  /* No-jump scrollbar behavior */
+  scrollbar-gutter: stable;
+  overflow-y: scroll;
+
+  /* Prevent sideways layout expansion */
+  overflow-x: clip;
+  width: 100%;
+}
+
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+
+  overflow-y: scroll;
+  overflow-x: clip;
+  width: 100%;
+}
+
+/* ===============================
+   NAV UNDERLINE (PREMIUM GOLD)
+   Used by Navbar.jsx: className="nav-underline"
+================================ */
+.nav-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #e7c775, #b8956a);
+  border-radius: 999px;
+  transition: width 320ms cubic-bezier(.2,.8,.2,1);
+  opacity: 0.95;
+}
+
+.nav-underline:hover::after,
+.nav-underline:focus-visible::after {
+  width: 70%;
+}
+
+/* Homepage transparent navbar text readability */
+.nav-home-transparent {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ===============================
+   CTA BUTTONS (VISIBLE ALWAYS)
+================================ */
+.btn-primary {
+  background: #111;
+  color: #fff;
+  padding: 0.9rem 2.1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.22);
+  transition: transform .22s ease, box-shadow .22s ease, opacity .22s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(110deg, transparent, rgba(255,255,255,0.18), transparent);
+  transition: transform 700ms ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.26);
+  opacity: 0.98;
+}
+
+.btn-primary:hover::before {
+  transform: translateX(120%);
+}
+
+.btn-secondary {
+  border: 1.5px solid rgba(0,0,0,0.20);
+  color: rgba(0,0,0,0.80);
+  padding: 0.9rem 2.1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: transform .22s ease, border-color .22s ease, background .22s ease;
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(6px);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0,0,0,0.35);
+  background: rgba(255,255,255,0.55);
+}
+
+/* ===============================
+   SOCIAL + STICKY ICONS
+================================ */
+.premium-coin {
+  width: 60px;
+  height: 60px;
+  border-radius: 999px;
+  background: white;
+  border: 2px solid rgba(184,153,95,0.35);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.premium-coin:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+}
+
+.social-ic svg {
+  width: 22px;
+  height: 22px;
+  color: var(--olive);
+}
+
+/* ===============================
+   FOOTER (CENTERED + SAFE)
+================================ */
+.site-footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+ 
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  text-align: center;
+}
+
+/* Prevent any accidental horizontal overflow causing right-side gaps */
+html, body {
+  max-width: 100%;
+}
+
+#page-container {
+  max-width: 100%;
+}
+
+.premium-coin svg {
+  width: 22px;
+  height: 22px;
+  color: var(--olive);
+}
+
+/* Safe page wrapper: prevents horizontal overflow and unintended gaps */
+.page-safe {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* Windows Chrome scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--page-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.25);
+  border-radius: 999px;
+  border: 3px solid var(--page-bg);
+}
+
+/* Full-bleed utility: stretches sections across the full viewport width */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* Mobile: prevent 100vw rounding overflow from full-bleed sections */
+@media (max-width: 767px) {
+  .full-bleed {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* ===============================
+   ULTRA-PREMIUM REVEAL (HOTEL / SPA)
+================================ */
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: revealUp 1.45s cubic-bezier(.12,.85,.25,1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Wide, deliberate stagger */
+.reveal-delay-1 { animation-delay: 260ms; }
+.reveal-delay-2 { animation-delay: 560ms; }
+.reveal-delay-3 { animation-delay: 860ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
