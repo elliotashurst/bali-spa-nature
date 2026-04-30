@@ -14,7 +14,7 @@ export default function PortfolioPage() {
       scope: "Private label manufacturing, packaging coordination, and repeat supply planning",
       products: "Guest amenities and in-room personal care products",
       relationship: "Ongoing supply relationship",
-      img: "/portfolio/portfolio-1.jpg",
+      img: "/ser18.png",
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ export default function PortfolioPage() {
       scope: "Formulation development, sampling, and batch-based production",
       products: "Professional treatment products and spa back-of-house formats",
       relationship: "Multi-stage project delivery",
-      img: "/portfolio/portfolio-2.jpg",
+      img: "/ser1.png",
     },
     {
       id: 3,
@@ -32,7 +32,7 @@ export default function PortfolioPage() {
       scope: "Fragrance development, production coordination, and supply support",
       products: "Diffuser oils and hospitality fragrance formats",
       relationship: "Project-based manufacturing engagement",
-      img: "/portfolio/portfolio-3.jpg",
+      img: "/ser14.png",
     },
     {
       id: 4,
@@ -41,7 +41,7 @@ export default function PortfolioPage() {
       scope: "Bulk supply planning, product format alignment, and repeat order support",
       products: "Wellness and aromatherapy product formats",
       relationship: "Repeat wholesale supply arrangement",
-      img: "/portfolio/portfolio-4.jpg",
+      img: "/ser15.png",
     },
     {
       id: 5,
@@ -50,7 +50,7 @@ export default function PortfolioPage() {
       scope: "Private label product development and production planning",
       products: "Hair and personal care items for operational guest use",
       relationship: "Structured private label engagement",
-      img: "/portfolio/portfolio-5.jpg",
+      img: "/ser12.png",
     },
     {
       id: 6,
@@ -59,7 +59,7 @@ export default function PortfolioPage() {
       scope: "Batch production, quality control coordination, and ongoing supply",
       products: "Guest-use amenities and support products",
       relationship: "Long-term supply support",
-      img: "/portfolio/portfolio-6.jpg",
+      img: "/ser13.png",
     },
   ];
 

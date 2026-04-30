@@ -1,4 +1,5 @@
 import MiniHero from "@/components/MiniHero";
+import PrivateLabelTimeline from "@/components/PrivateLabelTimeline";
 
 export const metadata = {
  title: "Private Label Manufacturing for Hospitality & Wellness",
@@ -19,51 +20,7 @@ export default function PrivateLabelPage() {
      
 
       {/* Process */}
-      <section className="py-20 md:py-24 px-6 md:px-10 bg-[var(--page-bg)]">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-center text-neutral-900 mb-14 leading-tight">
-            Our Private Label Process
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-8 md:gap-10">
-            <div className="bg-white/70 rounded-2xl p-6 md:p-8">
-              <h3 className="text-xl font-medium text-neutral-900 mb-3">
-                Project Brief & Feasibility
-              </h3>
-              <p className="text-[16px] leading-7 text-neutral-700">
-                Review of product intent, professional use case, volumes, and regulatory considerations.
-              </p>
-            </div>
-
-            <div className="bg-white/70 rounded-2xl p-6 md:p-8">
-              <h3 className="text-xl font-medium text-neutral-900 mb-3">
-                Formulation & Sampling
-              </h3>
-              <p className="text-[16px] leading-7 text-neutral-700">
-                Development and refinement of formulations through structured sampling.
-              </p>
-            </div>
-
-            <div className="bg-white/70 rounded-2xl p-6 md:p-8">
-              <h3 className="text-xl font-medium text-neutral-900 mb-3">
-                Production Planning & Compliance
-              </h3>
-              <p className="text-[16px] leading-7 text-neutral-700">
-                Finalisation of specifications, packaging, documentation, and timelines.
-              </p>
-            </div>
-
-            <div className="bg-white/70 rounded-2xl p-6 md:p-8">
-              <h3 className="text-xl font-medium text-neutral-900 mb-3">
-                Manufacturing & Ongoing Supply
-              </h3>
-              <p className="text-[16px] leading-7 text-neutral-700">
-                Batch-based production with defined quality controls and repeat supply planning.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PrivateLabelTimeline />
 
       {/* Project Parameters */}
       <section className="py-20 md:py-24 px-6 md:px-10 bg-[#EEE8E0]">

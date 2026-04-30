@@ -6,6 +6,7 @@ import PageTransition from "@/components/PageTransition";
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -85,6 +86,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         style={{ overflowY: "scroll", overflowX: "hidden" }}
         className="bg-[var(--page-bg)] text-[var(--foreground)] antialiased"
       >
+          <ScrollToTop />
+
         <Navbar />
         <RightRail />
 
