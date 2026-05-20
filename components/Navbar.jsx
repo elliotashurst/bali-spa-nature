@@ -22,8 +22,10 @@ export default function Navbar() {
   // Lock body scroll when menu is open
   useEffect(() => {
     if (!menuOpen) return;
+
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+
     return () => {
       document.body.style.overflow = prev || "";
     };
@@ -46,16 +48,18 @@ export default function Navbar() {
     };
 
     onScroll();
+
     window.addEventListener("scroll", onScroll, { passive: true });
+
     return () => window.removeEventListener("scroll", onScroll);
   }, [menuOpen]);
 
   const links = [
     ["Home", "/"],
-    ["About", "/about"],
-    ["Products", "/products"],
     ["Private Label", "/private-label"],
     ["Wholesale", "/wholesale"],
+    ["Manufacturing Capabilities", "/products"],
+    ["About", "/about"],
     ["Portfolio", "/portfolio"],
     ["Contact", "/contact"],
   ];
@@ -105,31 +109,20 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-10">
-            <ul
-              className={[
-                "flex items-center gap-8 lg:gap-10 text-[13px] uppercase font-medium tracking-[0.08em] transition-colors duration-300",
-                desktopNavTextClass,
-              ].join(" ")}
-            >
-              {links.map(([label, href]) => (
-                <li key={href}>
-                  <Link href={href} className="nav-underline">
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            <Link
-              href="/contact"
-              className={
-                isHome && !isScrolled ? "btn-secondary-light" : "btn-olive"
-              }
-            >
-              Discuss a Project
-            </Link>
-          </div>
+          <ul
+            className={[
+              "hidden md:flex items-center gap-7 lg:gap-9 xl:gap-11 text-[12px] lg:text-[13px] uppercase font-medium tracking-[0.075em] transition-colors duration-300 whitespace-nowrap",
+              desktopNavTextClass,
+            ].join(" ")}
+          >
+            {links.map(([label, href]) => (
+              <li key={href}>
+                <Link href={href} className="nav-underline">
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
           {/* Mobile hamburger */}
           <button
@@ -176,7 +169,11 @@ export default function Navbar() {
           {/* Drawer */}
           <div className="absolute right-0 top-0 h-full w-[88%] max-w-sm border-l border-black/10 bg-[var(--page-bg)] shadow-2xl">
             <div className="flex items-center justify-between px-6 pb-4 pt-6">
-              <Link href="/" onClick={() => setMenuOpen(false)} className="shrink-0">
+              <Link
+                href="/"
+                onClick={() => setMenuOpen(false)}
+                className="shrink-0"
+              >
                 <img
                   src="/logo.png"
                   alt="Bali Spa Nature"
@@ -211,8 +208,9 @@ export default function Navbar() {
                 <Link href="/contact" className="btn-olive">
                   Discuss a Project
                 </Link>
+
                 <Link href="/products" className="btn-secondary">
-                  Explore Product Categories
+                  Explore Manufacturing Capabilities
                 </Link>
               </div>
             </div>

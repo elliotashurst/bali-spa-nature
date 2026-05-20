@@ -5,236 +5,153 @@ export default function AboutPage() {
   return (
     <div className="page-safe">
       <MiniHero
-        title="About Bali Spa Nature"
-        subtitle="Bali Spa Nature is an Indonesian manufacturer of spa and personal care products for professional hospitality and wellness use."
-        ctaPrimary={{ label: "Discuss a Manufacturing Partnership", href: "/contact" }}
-        ctaSecondary={{ label: "Explore Product Categories", href: "/products" }}
+        title="Founder-Led Formulation. Structured Manufacturing."
+        subtitle="Bali Spa Nature was founded in 2009 by Susi Winarti and has developed into a formulation-led manufacturing business serving hospitality and wellness operators across Indonesia."
+        ctaPrimary={{
+          label: "Discuss a Manufacturing Partnership",
+          href: "/contact",
+        }}
+        ctaSecondary={{
+          label: "Explore Manufacturing Capabilities",
+          href: "/products",
+        }}
       />
 
-      {/* Opening */}
-      <section className="section-spacing px-6 md:px-10 bg-[var(--surface)]">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-body-lg">
-            We work with hotels, resorts, spas, and wellness businesses seeking
-            reliable, long-term manufacturing partnerships.
-          </p>
-
-          <p className="mt-5 text-body-lg">
-            Our operations are focused on private label manufacturing and wholesale
-            supply, structured for repeatability and consistency.
-          </p>
-        </div>
-      </section>
-
-      {/* Manufacturing-led by design */}
-      <section className="section-spacing px-6 md:px-10 bg-[var(--page-bg)]">
+      {/* The Work Behind the Work */}
+      <section className="py-16 md:py-20 px-6 md:px-10 bg-[var(--surface)]">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="heading-section mb-6">
-            Manufacturing-Led by Design
-          </h2>
+          <p className="eyebrow mb-4">Founder-Led Formulation</p>
 
-          <p className="text-body-lg">
-            Bali Spa Nature operates as a manufacturing-first business. Products
-            are formulated, sampled, and produced through defined processes designed
-            to support professional environments where consistency, safety, and
-            reliability matter.
-          </p>
+          <h2 className="heading-section">The Work Behind the Work</h2>
 
-          <p className="mt-5 text-body-lg">
-            Each engagement is approached as a manufacturing project rather than a
-            retail transaction.
-          </p>
-        </div>
-      </section>
+          <div className="mt-6 space-y-5">
+            <p className="text-body-lg">
+              Susi’s value is not only in knowing ingredients. It is in
+              formulation judgement — understanding how materials behave, how
+              scent reads across repeat guest use, how texture performs in humid
+              environments, and how approved products can be reproduced
+              consistently.
+            </p>
 
-      {/* Founder perspective */}
-      <section className="section-spacing px-6 md:px-10 bg-[var(--surface)]">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-          <div className="text-center md:text-left">
-            <p className="eyebrow mb-4">Founder Perspective</p>
+            <p className="text-body-lg">
+              This knowledge comes from doing the work repeatedly: developing,
+              testing, correcting, producing, and supplying products for real
+              hospitality conditions.
+            </p>
 
-            <h2 className="heading-section mb-6">
-              Rooted in Indonesian Knowledge and Practical Manufacturing Experience
-            </h2>
-
-            <div className="space-y-5">
-              <p className="text-body-lg">
-                Bali Spa Nature is shaped by a background rooted in Indonesian
-                culture, where traditional values, craftsmanship, and natural
-                ingredients have long played an important role in daily life and
-                production practices.
-              </p>
-
-              <p className="text-body-lg">
-                Early experience across handicraft and natural product manufacturing
-                developed a strong interest in formulation, material quality, and
-                the relationship between product function and aesthetic presentation.
-              </p>
-
-              <p className="text-body-lg">
-                This foundation continues to influence how products are approached
-                today, with an emphasis on combining traditional knowledge with
-                structured, modern manufacturing processes.
-              </p>
-
-              <p className="text-body-lg">
-                The focus remains on supporting businesses in creating products that
-                reflect their identity while maintaining consistency, reliability,
-                and suitability for professional hospitality and wellness environments.
-              </p>
-            </div>
-          </div>
-
-          <div className="rounded-3xl overflow-hidden bg-white/50 shadow-sm">
-            <img
-              src="/hero-rice.jpg"
-              alt="Indonesian landscape connected to Bali Spa Nature manufacturing origins"
-              className="w-full h-[360px] object-cover"
-            />
+            <p className="text-body-lg">
+              Not as a story — but as something that performs.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Manufacturing approach */}
-      <section className="section-spacing px-6 md:px-10 bg-[var(--page-bg)]">
+      {/* Manufacturing-Led by Design */}
+      <section className="py-16 md:py-20 px-6 md:px-10 bg-[var(--page-bg)]">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="eyebrow mb-4">Our Vision</p>
+          <p className="eyebrow mb-4">Manufacturing Discipline</p>
 
-          <h2 className="heading-section mb-6">
-            Manufacturing Partnerships Built Around Brand Identity
-          </h2>
+          <h2 className="heading-section">Manufacturing-Led by Design</h2>
 
-          <div className="space-y-5">
+          <div className="mt-6 space-y-5">
             <p className="text-body-lg">
-              Bali Spa Nature operates as a manufacturing partner supporting
-              hospitality and wellness businesses in developing their own branded
-              product ranges.
+              BSN operates as a manufacturing-first business. Products are
+              formulated, sampled, documented, and produced through defined
+              processes designed to support professional-use environments.
             </p>
 
             <p className="text-body-lg">
-              The focus is on private label manufacturing, where products are
-              designed to align with each client’s brand identity while meeting the
-              functional requirements of professional environments such as hotels,
-              resorts, villas, and spas.
-            </p>
-
-            <p className="text-body-lg">
-              Manufacturing is managed across formulation, sampling, and production,
-              allowing projects to be structured according to operational needs,
-              volume requirements, and budget parameters.
-            </p>
-
-            <p className="text-body-lg">
-              The objective is to enable partners to integrate product supply into
-              their operations with minimal friction, ensuring reliable manufacturing
-              output while allowing them to focus on business growth and guest
-              experience.
+              Each engagement is approached as a manufacturing project, not a
+              casual product request.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Our mission */}
-      <section className="section-spacing px-6 md:px-10 bg-[var(--surface)]">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="eyebrow mb-4">Our Mission</p>
-
-            <h2 className="heading-section mb-6">
-              Responsible Manufacturing With Long-Term Supply in Mind
-            </h2>
-
-            <div className="space-y-5">
-              <p className="text-body-lg">
-                Bali Spa Nature supports hospitality and wellness businesses with
-                product manufacturing that considers quality, consistency, and
-                environmental responsibility from the outset.
-              </p>
-
-              <p className="text-body-lg">
-                Our approach prioritises natural-origin ingredients where suitable,
-                responsible packaging choices, and production planning that reduces
-                unnecessary waste across repeat supply projects.
-              </p>
-
-              <p className="text-body-lg">
-                Sustainability is treated as a practical manufacturing consideration,
-                including how materials are sourced, how packaging is selected, and
-                how products are developed for ongoing professional use.
-              </p>
-
-              <p className="text-body-lg">
-                We aim to help partners create spa, hospitality, and personal care
-                products that support their operational needs while reflecting a more
-                conscious approach to manufacturing.
-              </p>
-            </div>
-          </div>
-
-          <div className="rounded-3xl overflow-hidden bg-white/50 shadow-sm">
-            <img
-              src="/hero-rice.jpg"
-              alt="Natural ingredients and responsible manufacturing"
-              className="w-full h-[360px] object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* From formulation to supply */}
-      <section className="section-spacing px-6 md:px-10 bg-[var(--page-bg)]">
+      {/* From Indonesian Formulation to Ongoing Supply */}
+      <section className="py-16 md:py-20 px-6 md:px-10 bg-[var(--surface)]">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="heading-section mb-6">
+          <p className="eyebrow mb-4">Origin & Supply</p>
+
+          <h2 className="heading-section">
             From Indonesian Formulation to Ongoing Supply
           </h2>
 
-          <p className="text-body-lg">
-            The business was established to serve hospitality and wellness operators
-            seeking professionally manufactured products rooted in Indonesian botanical
-            knowledge.
-          </p>
+          <div className="mt-6 space-y-5">
+            <p className="text-body-lg">
+              The business is grounded in Indonesian botanical knowledge and
+              practical manufacturing experience.
+            </p>
 
-          <p className="mt-5 text-body-lg">
-            Formulation, sampling, and production are structured to support private
-            label and wholesale partnerships through controlled stages from concept
-            to supply.
-          </p>
+            <p className="text-body-lg">
+              Formulation, sampling, and production are structured to support
+              private-label and wholesale partnerships through controlled stages
+              from concept to supply.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Manufacturing, quality & compliance */}
-      <section className="section-spacing px-6 md:px-10 bg-[var(--surface)]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="heading-section text-center mb-12">
-            Manufacturing, Quality & Compliance
-          </h2>
+      {/* Manufacturing, Quality & Compliance */}
+      <section className="py-16 md:py-20 px-6 md:px-10 bg-[var(--page-bg)]">
+        <div className="max-w-5xl mx-auto">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <p className="eyebrow mb-4">Quality & Compliance</p>
 
-          <div className="bg-white/70 rounded-2xl p-8 md:p-10">
-            <div className="space-y-5">
-              {[
-                "Manufacturing conducted in Indonesia",
-                "GMP-aligned production processes",
-                "Batch-based production with defined quality checks",
-                "BPOM support available where applicable",
-                "Export documentation supported per destination market",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <span className="mt-2 h-2 w-2 rounded-full bg-[var(--olive)]" />
-                  <p className="text-[16px] leading-7 text-[var(--text-main)] font-medium">
-                    {item}
-                  </p>
+            <h2 className="heading-section">
+              Manufacturing, Quality & Compliance
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              "Manufacturing conducted in Indonesia",
+              "CPKB-aligned production processes",
+              "Batch-based production with defined quality checks",
+              "BPOM support available where applicable",
+              "Export documentation supported by destination market",
+            ].map((item, index) => {
+              const isLast = index === 4;
+
+              return (
+                <div
+                  key={item}
+                  className={`group rounded-3xl bg-white/70 border border-black/5 p-6 md:p-7 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/85 hover:shadow-[0_18px_45px_rgba(74,93,82,0.14)] ${
+                    isLast ? "md:col-span-2 md:max-w-xl md:mx-auto" : ""
+                  }`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--sand)] bg-[var(--surface)]">
+                      <span className="h-2.5 w-2.5 rounded-full bg-[var(--olive)]" />
+                    </div>
+
+                    <p className="text-body font-medium">{item}</p>
+                  </div>
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="section-spacing px-6 md:px-10 bg-[var(--page-bg)] text-center">
-        <Link href="/contact" className="btn-olive">
-          Discuss a Manufacturing Partnership
-        </Link>
+      <section className="py-16 md:py-20 px-6 md:px-10 bg-[var(--surface)] text-center">
+        <div className="max-w-4xl mx-auto rounded-[2rem] border border-black/5 bg-white/70 px-8 py-14 md:px-14 md:py-16 shadow-sm">
+          <p className="eyebrow mb-4">Private Label</p>
+
+          <h2 className="heading-section">Start a Private Label Project</h2>
+
+          <p className="text-body-lg mt-6 max-w-2xl mx-auto">
+            Share your project requirements and we will review formulation fit,
+            production suitability, and supply potential.
+          </p>
+
+          <div className="mt-10">
+            <Link href="/private-label" className="btn-primary">
+              Start a Private Label Project
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   );

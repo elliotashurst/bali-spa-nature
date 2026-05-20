@@ -7,41 +7,58 @@ export default function HomePage() {
   return (
     <div className="page-safe">
       <HeroSection
-  title={`Private Label Spa & Hospitality Product Manufacturing`}
-
-subtitle={`Manufactured in Indonesia for hotels, resorts, and wellness operators. Structured for consistency, compliance, and long-term supply.`}
-        ctaPrimary={{ label: "Discuss a Private Label Project", href: "/private-label" }}
-        ctaSecondary={{ label: "Explore Product Categories", href: "/products" }}
+        title={`Formulation-Led Manufacturing for Hospitality`}
+        subtitle={`Bali Spa Nature develops and manufactures private-label and wholesale spa, amenity, and personal care products for hotels, resorts, spas, villas, and wellness operators across Indonesia.\n\nOur work combines Indonesian botanical formulation knowledge with structured development, controlled production, and long-term supply planning.`}
+        ctaPrimary={{
+          label: "Start a Private Label Project",
+          href: "/private-label",
+        }}
+        ctaSecondary={{
+          label: "Explore Manufacturing Capabilities",
+          href: "/products",
+        }}
         plantImage="/hero-rice.jpg"
       />
 
       {/* softer transition from hero into content */}
       <div className="h-8 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.08),transparent)]" />
 
-      {/* Bali Grounding Block */}
-      <section className="py-16 md:py-20 px-6 md:px-10 bg-[#F2EEE8]">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-neutral-900 mb-6 leading-tight">
-            Rooted in Indonesia. Built for Professional Hospitality.
+      {/* Process Timeline */}
+      <div className="-mt-6">
+        <ProcessTimeline />
+      </div>
+
+      {/* Certifications */}
+      <div className="-mt-8">
+        <CertificationsSection />
+      </div>
+
+      {/* USP Section */}
+      <div className="-mt-4">
+        <USPSection />
+      </div>
+
+      {/* Final CTA */}
+      <section className="pt-10 pb-24 px-6 md:px-10 bg-[var(--surface)]">
+        <div className="max-w-4xl mx-auto text-center rounded-[2rem] border border-black/5 bg-white/70 px-8 py-14 md:px-14 md:py-16 shadow-sm">
+          <p className="eyebrow mb-4">Enquiries</p>
+
+          <h2 className="heading-section">
+            Start a Structured Manufacturing Conversation
           </h2>
 
-          <p className="text-[17px] leading-8 text-neutral-700">
-            Bali Spa Nature manufactures spa and personal care products in Indonesia for hotels,
-            resorts, and wellness operators. Our formulations draw from Indonesian botanical
-            traditions and are executed through controlled, GMP-aligned production processes.
+          <p className="text-body-lg mt-6 max-w-2xl mx-auto">
+            If your property or business requires private-label development or
+            repeat wholesale supply, submit an enquiry for review.
           </p>
 
-          <p className="text-[17px] leading-8 text-neutral-700 mt-5">
-            We focus on repeatability, compliance, and long-term supply relationships rather than
-            retail trends.
-          </p>
+          <div className="mt-10">
+            <a href="/contact" className="btn-primary">
+              Submit Enquiry for Review
+            </a>
+          </div>
         </div>
       </section>
-
-      {/* Process Block */}
-      <ProcessTimeline />
-      <CertificationsSection />
-      <USPSection />
     </div>
   );
 }

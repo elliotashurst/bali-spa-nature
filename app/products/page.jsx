@@ -1,115 +1,210 @@
 ﻿import MiniHero from "@/components/MiniHero";
 import Link from "next/link";
-import { Hotel, Leaf, Droplets, Sparkles } from "lucide-react";
 
 export const metadata = {
-  title: "Products & Manufacturing Capabilities | Bali Spa Nature",
+  title: "Manufacturing Capabilities | Bali Spa Nature",
   description:
-    "Core manufacturing categories for private label and wholesale spa and hospitality products.",
+    "Manufacturing capabilities for hospitality and wellness operators, including formulation, sampling, batch production, quality control, packaging coordination, and repeat supply support.",
 };
 
-const categories = [
-  {
-    title: "Hospitality Amenities",
-    text: "Manufactured for guest-use environments requiring consistency and operational reliability.",
-    icon: Hotel,
-  },
-  {
-    title: "Professional Spa Products",
-    text: "Products developed for spa treatment rooms and professional back-of-house use.",
-    icon: Leaf,
-  },
-  {
-    title: "Hair & Personal Care",
-    text: "Formulated for frequent professional use, prioritising safety and consistency.",
-    icon: Droplets,
-  },
-  {
-    title: "Aromatherapy & Fragrance",
-    text: "Developed for professional hospitality and wellness environments.",
-    icon: Sparkles,
-  },
+const productionScope = [
+  "Formulation and sampling",
+  "Batch production",
+  "Quality control checkpoints",
+  "Production documentation",
+  "Packaging coordination",
+  "Ongoing supply planning",
+];
+
+const manufacturingCategories = [
+  "Hospitality Amenities",
+  "Professional Spa Products",
+  "Hair & Personal Care",
+  "Body Care & Treatment Oils",
+  "Aromatherapy & Fragrance",
+  "Wellness Formulations",
 ];
 
 export default function ProductsPage() {
   return (
     <div className="page-safe">
-      {/* MiniHero */}
       <MiniHero
-        title="Products & Manufacturing Capabilities"
-        subtitle="The categories below represent our core manufacturing capabilities and are used as the basis for private label manufacturing and wholesale supply projects."
+        title="Manufacturing Capabilities"
+        subtitle="Bali Spa Nature provides formulation, sampling, batch production, quality control, packaging coordination, and repeat supply support for hospitality and wellness operators."
         ctaPrimary={{ label: "Discuss Manufacturing Scope", href: "/contact" }}
         ctaSecondary={{
-          label: "Private Label Manufacturing",
+          label: "Start a Private Label Project",
           href: "/private-label",
         }}
       />
 
-      {/* Categories */}
-      <section className="section-spacing px-6 md:px-10 bg-[var(--page-bg)]">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-          {categories.map((category) => {
-            const Icon = category.icon;
+      {/* Production Scope */}
+      <section className="py-16 md:py-20 px-6 md:px-10 bg-[var(--page-bg)]">
+        <div className="max-w-5xl mx-auto">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <p className="eyebrow mb-4">Production Scope</p>
 
-            return (
+            <h2 className="heading-section">Production Scope</h2>
+
+            <p className="text-body-lg mt-5">
+              Our production process is structured around defined formulation
+              development, batch control, and repeat supply requirements.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {productionScope.map((item) => (
               <div
-                key={category.title}
-                className="group rounded-3xl bg-white/70 border border-black/5 p-7 md:p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/85 hover:shadow-[0_18px_45px_rgba(74,93,82,0.14)]"
+                key={item}
+                className="group rounded-3xl bg-white/70 border border-black/5 p-6 md:p-7 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/85 hover:shadow-[0_18px_45px_rgba(74,93,82,0.14)]"
               >
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--surface)] border border-[var(--sand)]">
-                  <Icon
-                    size={26}
-                    strokeWidth={1.7}
-                    className="text-[var(--olive)] transition-transform duration-300 group-hover:scale-110"
-                  />
+                <div className="flex items-start gap-4">
+                  <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--sand)] bg-[var(--surface)]">
+                    <span className="h-2.5 w-2.5 rounded-full bg-[var(--olive)]" />
+                  </div>
+
+                  <p className="text-body font-medium">{item}</p>
                 </div>
-
-                <h3 className="heading-card">{category.title}</h3>
-                <p className="text-body mt-4">{category.text}</p>
               </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Reference catalogue CTA */}
-      <section className="section-spacing-tight px-6 md:px-10 bg-[#F2EEE8]">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="heading-section">
-            Need a More Detailed Reference View?
-          </h2>
-
-          <p className="text-body-lg mt-5">
-            Explore representative product formats and manufacturing examples
-            presented as a reference to manufacturing scope rather than fixed
-            retail items.
-          </p>
-
-          <div className="mt-8">
-            <Link href="/catalogue" className="btn-secondary">
-              View Reference Catalogue
-            </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Context block */}
-      <section className="section-spacing-tight px-6 md:px-10 bg-[#EEE8E0]">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-body-lg">
-            Product categories shown reflect manufacturing scope rather than
-            fixed retail items. Final formulations, formats, and specifications
-            are defined per project based on use case, volume, and operational
-            requirements.
-          </p>
+      {/* Formulation Standards */}
+      <section className="py-16 md:py-20 px-6 md:px-10 bg-[var(--surface)]">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="eyebrow mb-4">Formulation Standards</p>
+
+          <h2 className="heading-section">Formulation Standards</h2>
+
+          <div className="mt-6 space-y-5">
+            <p className="text-body-lg">
+              Formulations are developed from proven botanical and production
+              foundations, then refined to suit project requirements, hospitality
+              use conditions, and approved specifications.
+            </p>
+
+            <p className="text-body-lg">
+              Ingredient selection is based on formulation function, material
+              behaviour, batch consistency, and suitability for professional-use
+              environments.
+            </p>
+
+            <p className="text-body-lg">
+              Essential oil and botanical inputs are treated as formulation
+              decisions, not decorative claims. Approved compositions are
+              documented and maintained across repeat production.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section-spacing px-6 md:px-10 bg-[var(--page-bg)] text-center">
-        <Link href="/contact" className="btn-primary">
-          Discuss Manufacturing Scope
-        </Link>
+      {/* Regulatory & Manufacturing Credentials */}
+      <section className="py-16 md:py-20 px-6 md:px-10 bg-[var(--page-bg)]">
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <p className="eyebrow mb-4">Credentials</p>
+
+            <h2 className="heading-section">
+              Regulatory & Manufacturing Credentials
+            </h2>
+
+            <p className="text-body-lg mt-5">
+              BSN supports hospitality and wellness projects with relevant
+              manufacturing documentation and regulatory support where applicable.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="rounded-[2rem] bg-white/70 border border-black/5 p-8 md:p-10 shadow-sm">
+              <p className="eyebrow mb-4">BPOM</p>
+
+              <h3 className="heading-card">
+                Badan Pengawas Obat dan Makanan
+              </h3>
+
+              <p className="text-body mt-5">
+                Indonesia’s National Agency of Drug and Food Control. Relevant
+                product registration and documentation support are managed
+                according to product type and project requirements.
+              </p>
+            </div>
+
+            <div className="rounded-[2rem] bg-white/70 border border-black/5 p-8 md:p-10 shadow-sm">
+              <p className="eyebrow mb-4">CPKB</p>
+
+              <h3 className="heading-card">
+                Cara Pembuatan Kosmetika yang Baik
+              </h3>
+
+              <p className="text-body mt-5">
+                Indonesia’s Good Manufacturing Practice standard for cosmetics.
+                This supports production discipline, batch control, quality
+                systems, and manufacturing environment standards.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Manufacturing Categories */}
+      <section className="py-16 md:py-20 px-6 md:px-10 bg-[var(--surface)]">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="eyebrow mb-4">Capability Areas</p>
+
+          <h2 className="heading-section">Manufacturing Categories</h2>
+
+          <p className="text-body-lg mt-5">
+            The categories below represent manufacturing capability areas.
+            Specific formulations, formats, and specifications are confirmed
+            during project briefing.
+          </p>
+
+          <div className="mt-12 border-y border-[var(--line-soft)]">
+            {manufacturingCategories.map((item) => (
+              <div
+                key={item}
+                className="border-b border-[var(--line-soft)] last:border-b-0 py-5"
+              >
+                <p className="text-lg md:text-xl font-medium tracking-tight text-[var(--text-main)]">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Packaging & Production Parameters */}
+      <section className="py-16 md:py-20 px-6 md:px-10 bg-[var(--page-bg)]">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="eyebrow mb-4">Production Parameters</p>
+
+          <h2 className="heading-section">
+            Packaging & Production Parameters
+          </h2>
+
+          <div className="mt-6 space-y-5">
+            <p className="text-body-lg">
+              Packaging formats, fill volumes, closure types, label requirements,
+              and production schedules are defined during the project briefing
+              and approval process.
+            </p>
+
+            <p className="text-body-lg">
+              Minimum production volumes and lead time frameworks vary by product
+              type, packaging format, formulation complexity, and production
+              schedule.
+            </p>
+          </div>
+
+          <div className="mt-10">
+            <Link href="/contact" className="btn-primary">
+              Discuss Manufacturing Scope
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   );

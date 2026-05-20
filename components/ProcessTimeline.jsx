@@ -8,29 +8,29 @@ import { FileText, FlaskConical, ClipboardCheck, Factory } from "lucide-react";
 const steps = [
   {
     number: "01",
-    title: "Concept & Product Brief",
-    text: "Review of product intent, professional use case, volumes, and regulatory considerations.",
+    title: "Project Brief & Feasibility",
+    text: "We review the product intent, hospitality use case, estimated volumes, timeline, and regulatory context before confirming whether the project is suitable.",
     icon: FileText,
     image: "/hero-rice.jpg",
   },
   {
     number: "02",
     title: "Formulation & Sampling",
-    text: "Structured formulation development and refinement through sampling.",
+    text: "Development builds on proven formulation foundations and is refined through structured sampling, material review, and documented feedback.",
     icon: FlaskConical,
     image: "/hero-rice.jpg",
   },
   {
     number: "03",
-    title: "Production Planning & Compliance",
-    text: "Final specifications, documentation, and timelines confirmed prior to manufacture.",
+    title: "Approval & Production Planning",
+    text: "Final specifications, packaging formats, documentation, and production schedule are confirmed before manufacturing begins.",
     icon: ClipboardCheck,
     image: "/hero-rice.jpg",
   },
   {
     number: "04",
     title: "Manufacturing & Ongoing Supply",
-    text: "Batch-based production with defined quality controls and repeat supply planning.",
+    text: "Batch-based production is managed with defined quality checks, documentation, and repeat supply planning.",
     icon: Factory,
     image: "/hero-rice.jpg",
   },
@@ -44,74 +44,79 @@ export default function ProcessTimeline() {
     gsap.registerPlugin(ScrollTrigger);
 
     const section = sectionRef.current;
-    const line = lineRef.current;
-    if (!section || !line) return;
+    if (!section) return;
 
-    const items = section.querySelectorAll(".timeline-item");
+    const cards = section.querySelectorAll(".timeline-card");
     const dots = section.querySelectorAll(".timeline-dot");
-    const pulses = section.querySelectorAll(".timeline-pulse");
 
     const ctx = gsap.context(() => {
-      gsap.set(line, { scaleY: 0, transformOrigin: "top center" });
-      gsap.set(items, { opacity: 0, y: 36 });
-      gsap.set(dots, { scale: 0.6, opacity: 0 });
-      gsap.set(pulses, { scale: 0.8, opacity: 0 });
+      gsap.set(cards, {
+        opacity: 0,
+        x: -30,
+      });
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top 70%",
-            once: true,
-          },
-        })
-        .to(line, { scaleY: 1, duration: 1.4, ease: "power3.out" })
-        .to(
-          items,
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.85,
-            ease: "power3.out",
-            stagger: 0.18,
-          },
-          "-=1.05"
-        )
-        .to(
-          dots,
-          {
-            scale: 1,
-            opacity: 1,
-            duration: 0.45,
-            ease: "back.out(1.8)",
-            stagger: 0.16,
-          },
-          "-=0.9"
-        )
-        .to(
-          pulses,
-          {
-            opacity: 0.28,
-            duration: 0.4,
-            stagger: 0.12,
-            onComplete: () => {
-              if (window.innerWidth > 768) {
-                gsap.to(pulses, {
-                  scale: 1.55,
-                  opacity: 0,
-                  duration: 1.8,
-                  ease: "power2.out",
-                  stagger: {
-                    each: 0.35,
-                    repeat: -1,
-                    repeatDelay: 1.4,
-                  },
-                });
-              }
-            },
-          },
-          "-=0.4"
-        );
+      gsap.set(dots, {
+        scale: 0.7,
+        opacity: 0,
+      });
+
+      if (lineRef.current) {
+        gsap.set(lineRef.current, {
+          scaleX: 0,
+          transformOrigin: "left center",
+        });
+      }
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 72%",
+          once: true,
+        },
+      });
+
+      if (lineRef.current) {
+        tl.to(lineRef.current, {
+          scaleX: 1,
+          duration: 1.2,
+          ease: "power3.out",
+        });
+      }
+
+      tl.to(
+        cards,
+        {
+          opacity: 1,
+          x: 0,
+          stagger: 0.16,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "-=0.7"
+      );
+
+      tl.to(
+        dots,
+        {
+          opacity: 1,
+          scale: 1,
+          stagger: 0.12,
+          duration: 0.45,
+          ease: "back.out(1.8)",
+        },
+        "-=0.7"
+      );
+
+      if (window.innerWidth > 768) {
+        gsap.to(dots, {
+          y: -5,
+          duration: 2,
+          ease: "sine.inOut",
+          stagger: 0.15,
+          repeat: -1,
+          yoyo: true,
+        });
+      }
 
       ScrollTrigger.refresh();
     }, section);
@@ -122,76 +127,71 @@ export default function ProcessTimeline() {
   return (
     <section
       ref={sectionRef}
-      className="section-spacing px-6 md:px-10 bg-[var(--page-bg)]"
+      className="py-16 md:py-20 px-6 md:px-10 bg-[var(--page-bg)] overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+      <div className="max-w-7xl mx-auto">
+        {/* Heading */}
+        <div className="max-w-3xl mx-auto text-center mb-14">
           <p className="eyebrow mb-4">Process</p>
+
           <h2 className="heading-section">
             How Projects Move From Concept to Production
           </h2>
+
+          <p className="text-body-lg mt-5 max-w-2xl mx-auto">
+            Every engagement follows a defined process. This keeps formulation
+            development, approval, production, and repeat supply controlled from
+            the beginning.
+          </p>
         </div>
 
-        <div className="relative max-w-5xl mx-auto">
-          <div className="hidden md:block absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-[var(--line-soft)]">
-            <div ref={lineRef} className="h-full w-px bg-[var(--olive)]" />
+        {/* Horizontal Timeline */}
+        <div className="relative">
+          {/* Desktop line */}
+          <div className="hidden lg:block absolute left-0 right-0 top-10 h-px bg-[var(--line-soft)]">
+            <div ref={lineRef} className="h-px w-full bg-[var(--olive)]" />
           </div>
 
-          <div className="space-y-10 md:space-y-0">
-            {steps.map((step, index) => {
+          <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {steps.map((step) => {
               const Icon = step.icon;
-              const isLeft = index % 2 === 0;
-              const isLast = index === steps.length - 1;
 
               return (
-                <div
-                  key={step.title}
-                  className={`timeline-item relative grid md:grid-cols-2 md:gap-16 items-center ${
-                    !isLast ? "md:pb-16" : ""
-                  }`}
-                >
-                  <div className="timeline-dot hidden md:flex absolute left-1/2 top-7 h-11 w-11 -translate-x-1/2 items-center justify-center rounded-full bg-[var(--page-bg)] border border-[var(--olive)] z-10">
-                    <span className="timeline-pulse absolute h-11 w-11 rounded-full border border-[var(--olive)]" />
-                    <span className="relative h-3 w-3 rounded-full bg-[var(--olive)]" />
-                  </div>
+                <div key={step.number} className="timeline-card relative">
+                  {/* Desktop dot */}
+                  <div className="timeline-dot hidden lg:flex absolute left-1/2 -top-1 z-10 h-5 w-5 -translate-x-1/2 rounded-full border-4 border-[var(--page-bg)] bg-[var(--olive)]" />
 
-                  <div className={isLeft ? "md:text-right" : "md:col-start-2"}>
-                    <div className="group rounded-3xl bg-white/70 border border-black/5 p-7 md:p-8 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/85 hover:shadow-[0_18px_45px_rgba(74,93,82,0.14)]">
-                      <div
-                        className={`mb-5 flex ${
-                          isLeft ? "md:justify-end" : "md:justify-start"
-                        } justify-start`}
-                      >
-                        <div className="relative h-20 w-20 overflow-hidden rounded-full border border-[var(--sand)] bg-[var(--surface)] shadow-sm">
-                          <img
-                            src={step.image}
-                            alt=""
-                            className="absolute inset-0 h-full w-full object-cover opacity-25"
+                  <div className="group rounded-[2rem] bg-white/70 border border-black/5 p-7 md:p-8 shadow-sm transition-all duration-500 ease-out hover:-translate-y-2 hover:bg-white/85 hover:shadow-[0_22px_55px_rgba(74,93,82,0.16)]">
+                    <div className="mb-6">
+                      <div className="relative h-20 w-20 overflow-hidden rounded-full border border-[var(--sand)] bg-[var(--surface)] shadow-sm">
+                        <img
+                          src={step.image}
+                          alt=""
+                          className="absolute inset-0 h-full w-full object-cover opacity-20"
+                        />
+
+                        <div className="absolute inset-0 bg-[var(--surface)]/55" />
+
+                        <div className="relative flex h-full w-full items-center justify-center">
+                          <Icon
+                            size={30}
+                            strokeWidth={1.7}
+                            className="text-[var(--olive)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
                           />
-                          <div className="absolute inset-0 bg-[var(--surface)]/55" />
-                          <div className="relative flex h-full w-full items-center justify-center">
-                            <Icon
-                              size={30}
-                              strokeWidth={1.7}
-                              className="text-[var(--olive)] transition-transform duration-300 group-hover:scale-110"
-                            />
-                          </div>
                         </div>
                       </div>
-
-                      <span className="text-small-ui text-[var(--bronze)] transition-colors duration-300 group-hover:text-[var(--gold-deep)]">
-                        {step.number}
-                      </span>
-
-                      <h3 className="heading-card mt-3 transition-colors duration-300 group-hover:text-[var(--olive)]">
-                        {step.title}
-                      </h3>
-
-                      <p className="text-body mt-4">{step.text}</p>
                     </div>
-                  </div>
 
-                  <div className={isLeft ? "hidden md:block" : "hidden"} />
+                    <span className="text-small-ui text-[var(--bronze)] transition-colors duration-300 group-hover:text-[var(--gold-deep)]">
+                      {step.number}
+                    </span>
+
+                    <h3 className="heading-card mt-3 transition-colors duration-300 group-hover:text-[var(--olive)]">
+                      {step.title}
+                    </h3>
+
+                    <p className="text-body mt-4">{step.text}</p>
+                  </div>
                 </div>
               );
             })}
