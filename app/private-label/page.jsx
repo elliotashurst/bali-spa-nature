@@ -22,6 +22,19 @@ export default function PrivateLabelPage() {
       {/* Process */}
       <PrivateLabelTimeline />
 
+      {/* Sampling Stage Image */}
+<section className="pb-8 px-6 md:px-10 bg-[var(--page-bg)]">
+  <div className="max-w-6xl mx-auto">
+    <div className="overflow-hidden rounded-[2rem] border border-black/5 shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
+      <img
+        src="/private-label-sampling.jpg"
+        alt="Private label formulation sampling stage in progress"
+        className="h-[320px] md:h-[520px] w-full object-cover"
+      />
+    </div>
+  </div>
+</section>
+
       {/* What Can Be Customised */}
 <section className="py-16 md:py-20 px-6 md:px-10 bg-[var(--page-bg)]">
   <div className="max-w-5xl mx-auto">
@@ -68,6 +81,19 @@ export default function PrivateLabelPage() {
         Customisation is structured. It is not unlimited open-ended product
         development.
       </p>
+    </div>
+  </div>
+</section>
+
+        {/* Formulation Documentation Image */}
+<section className="pb-8 px-6 md:px-10 bg-[var(--page-bg)]">
+  <div className="max-w-6xl mx-auto">
+    <div className="overflow-hidden rounded-[2rem] border border-black/5 shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
+      <img
+        src="/formulation-documentation.jpg"
+        alt="Formulation documentation and private label project review"
+        className="h-[320px] md:h-[520px] w-full object-cover"
+      />
     </div>
   </div>
 </section>

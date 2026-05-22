@@ -99,6 +99,14 @@ export default function WholesalePage() {
                   Request Wholesale Information
                 </Link>
               </div>
+              {/* Operational Context Image */}
+<div className="my-8 overflow-hidden rounded-[1.75rem] border border-black/5">
+  <img
+    src="/wholesale-operational-context.jpg"
+    alt="Bali Spa Nature products in hospitality operational context"
+    className="h-[260px] md:h-[320px] w-full object-cover"
+  />
+</div>
             </div>
 
             {/* Stream 2 */}
@@ -129,6 +137,14 @@ export default function WholesalePage() {
                   Discuss Manufacturing Supply
                 </Link>
               </div>
+              {/* Manufacturing Supply Image */}
+<div className="my-8 overflow-hidden rounded-[1.75rem] border border-black/5">
+  <img
+    src="/manufacturing-supply.jpg"
+    alt="Manufacturing supply and batch-based production"
+    className="h-[260px] md:h-[320px] w-full object-cover"
+  />
+</div>
             </div>
           </div>
         </div>

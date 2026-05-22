@@ -16,7 +16,21 @@ export default function AboutPage() {
           href: "/products",
         }}
       />
+        {/* Founder Formulation Review Image */}
+<section className="pt-6 pb-8 px-6 md:px-10 bg-[var(--page-bg)]">
+  <div className="max-w-7xl mx-auto">
+    
+    <div className="overflow-hidden rounded-[2.25rem] border border-black/5 shadow-[0_24px_70px_rgba(0,0,0,0.08)]">
+      <img
+        src="/susi-formulation-review.jpg"
+        alt="Founder reviewing formulation samples and product development"
+        className="h-[340px] md:h-[620px] w-full object-cover"
+      />
+    </div>
 
+  </div>
+</section>
+          
       {/* The Work Behind the Work */}
       <section className="py-16 md:py-20 px-6 md:px-10 bg-[var(--surface)]">
         <div className="max-w-4xl mx-auto text-center">
@@ -91,7 +105,18 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
+          {/* Botanical Materials Detail Image */}
+<section className="pb-8 px-6 md:px-10 bg-[var(--surface)]">
+  <div className="max-w-7xl mx-auto">
+    <div className="overflow-hidden rounded-[2.25rem] border border-black/5 shadow-[0_24px_70px_rgba(0,0,0,0.08)]">
+      <img
+        src="/botanical-materials-detail.jpg"
+        alt="Botanical materials used in formulation development working context"
+        className="h-[320px] md:h-[560px] w-full object-cover"
+      />
+    </div>
+  </div>
+</section>
       {/* Manufacturing, Quality & Compliance */}
       <section className="py-16 md:py-20 px-6 md:px-10 bg-[var(--page-bg)]">
         <div className="max-w-5xl mx-auto">

@@ -38,6 +38,23 @@ export default function HomePage() {
         <USPSection />
       </div>
 
+        {/* Manufacturing / QC Image Section */}
+<section className="pb-8 px-6 md:px-10 bg-[var(--surface)]">
+  <div className="max-w-6xl mx-auto">
+    
+    <div className="overflow-hidden rounded-[2rem] border border-black/5 shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
+      <img
+        src="/qc-testing.jpg"
+        alt="Manufacturing quality control and formulation testing"
+        className="h-[320px] md:h-[520px] w-full object-cover"
+      />
+    </div>
+
+  </div>
+</section>
+
+
+
       {/* Final CTA */}
       <section className="pt-10 pb-24 px-6 md:px-10 bg-[var(--surface)]">
         <div className="max-w-4xl mx-auto text-center rounded-[2rem] border border-black/5 bg-white/70 px-8 py-14 md:px-14 md:py-16 shadow-sm">

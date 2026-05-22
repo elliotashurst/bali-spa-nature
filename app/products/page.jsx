@@ -37,7 +37,18 @@ export default function ProductsPage() {
           href: "/private-label",
         }}
       />
-
+            {/* Production Equipment / Manufacturing Image */}
+<section className="pt-6 pb-8 px-6 md:px-10 bg-[var(--page-bg)]">
+  <div className="max-w-7xl mx-auto">
+    <div className="overflow-hidden rounded-[2.25rem] border border-black/5 shadow-[0_24px_70px_rgba(0,0,0,0.08)]">
+      <img
+        src="/production-equipment.jpg"
+        alt="Production equipment and manufacturing environment"
+        className="h-[340px] md:h-[620px] w-full object-cover"
+      />
+    </div>
+  </div>
+</section>
       {/* Production Scope */}
       <section className="py-16 md:py-20 px-6 md:px-10 bg-[var(--page-bg)]">
         <div className="max-w-5xl mx-auto">
@@ -70,7 +81,20 @@ export default function ProductsPage() {
           </div>
         </div>
       </section>
+            {/* Batch Production in Progress */}
+<section className="pb-8 px-6 md:px-10 bg-[var(--page-bg)]">
+  <div className="max-w-7xl mx-auto">
+    
+    <div className="overflow-hidden rounded-[2.25rem] border border-black/5 shadow-[0_24px_70px_rgba(0,0,0,0.08)]">
+      <img
+        src="/batch-production.jpg"
+        alt="Batch production in progress"
+        className="h-[320px] md:h-[560px] w-full object-cover"
+      />
+    </div>
 
+  </div>
+</section>
       {/* Formulation Standards */}
       <section className="py-16 md:py-20 px-6 md:px-10 bg-[var(--surface)]">
         <div className="max-w-4xl mx-auto text-center">
@@ -99,7 +123,20 @@ export default function ProductsPage() {
           </div>
         </div>
       </section>
+            {/* Ingredient Weighing / Measuring */}
+<section className="pb-8 px-6 md:px-10 bg-[var(--page-bg)]">
+  <div className="max-w-7xl mx-auto">
+    
+    <div className="overflow-hidden rounded-[2.25rem] border border-black/5 shadow-[0_24px_70px_rgba(0,0,0,0.08)]">
+      <img
+        src="/ingredient-weighing.jpg"
+        alt="Ingredient weighing and formulation measuring process"
+        className="h-[320px] md:h-[560px] w-full object-cover"
+      />
+    </div>
 
+  </div>
+</section>
       {/* Regulatory & Manufacturing Credentials */}
       <section className="py-16 md:py-20 px-6 md:px-10 bg-[var(--page-bg)]">
         <div className="max-w-6xl mx-auto">
@@ -147,7 +184,20 @@ export default function ProductsPage() {
           </div>
         </div>
       </section>
+            {/* Testing Stage */}
+<section className="pb-8 px-6 md:px-10 bg-[var(--page-bg)]">
+  <div className="max-w-7xl mx-auto">
+    
+    <div className="overflow-hidden rounded-[2.25rem] border border-black/5 shadow-[0_24px_70px_rgba(0,0,0,0.08)]">
+      <img
+        src="/testing-stage.jpg"
+        alt="Product testing and formulation evaluation stage"
+        className="h-[320px] md:h-[560px] w-full object-cover"
+      />
+    </div>
 
+  </div>
+</section>
       {/* Manufacturing Categories */}
       <section className="py-16 md:py-20 px-6 md:px-10 bg-[var(--surface)]">
         <div className="max-w-4xl mx-auto text-center">
